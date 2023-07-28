@@ -1,0 +1,131 @@
+-- SELECT+ FROM STATEMENT
+SELECT*
+FROM EMPLOYEEDEMOGRAPHICS
+
+
+--ACCESSING SPECIFIC COLUMNS
+SELECT Firstname, LastName
+from EMPLOYEEDEMOGRAPHICS
+
+
+
+-- where statement
+select*
+from EMPLOYEEDEMOGRAPHICS
+where age > 30
+
+
+-- where statement
+select*
+from EMPLOYEEDEMOGRAPHICS
+where gender = 'm'
+
+
+
+--0rder by
+select*
+from EMPLOYEEDEMOGRAPHICS
+order by age asc
+
+
+
+
+
+select*
+from EMPLOYEEDEMOGRAPHICS
+order by age desc
+
+
+
+
+--aggeregate functions and alias
+
+select max(age) as maxage
+from [SQL TUTORIAL].dbo.EMPLOYEEDEMOGRAPHICS
+
+
+select min(age)  minage
+from EMPLOYEEDEMOGRAPHICS
+
+
+
+select max(salary)  maxsalary
+from EMPLOYEESALARY
+
+select min(salary)  minsalary
+from EMPLOYEESALARY
+
+
+select sum(salary)  totalsalary
+from EMPLOYEESALARY
+
+
+
+select avg(salary)  averagesalary
+from EMPLOYEESALARY
+
+
+
+
+select count(jobtitle) as countofjobtitles
+from EMPLOYEESALARY
+
+
+--GROUP BY
+SELECT GENDER,COUNT(GENDER) AS COUNTGENDER
+FROM EMPLOYEEDEMOGRAPHICS
+WHERE AGE>31
+GROUP BY GENDER
+
+
+
+SELECT AGE,COUNT(AGE) AS COUNTAGE
+FROM EMPLOYEEDEMOGRAPHICS
+GROUP BY AGE
+
+
+
+
+
+--CASE STATEMENT
+SELECT FirstName, Lastname, AGE,
+CASE
+    WHEN AGE >30 THEN 'OLD'
+	ELSE 'YOUNG'
+END AS AGEBRACKET
+FROM EMPLOYEEDEMOGRAPHICS
+
+
+--JOINS
+SELECT*
+FROM EMPLOYEEDEMOGRAPHICS
+JOIN EMPLOYEESALARY
+    ON EMPLOYEEDEMOGRAPHICS.EmployeeID
+	=EMPLOYEESALARY.EmployeeID
+
+
+SELECT*,
+CASE
+    WHEN AGE >30 THEN 'OLD'
+	ELSE 'YOUNG'
+END AS AGEBRACKET
+FROM EMPLOYEEDEMOGRAPHICS
+JOIN EMPLOYEESALARY
+    ON EMPLOYEEDEMOGRAPHICS.EmployeeID
+	=EMPLOYEESALARY.EmployeeID
+
+	SELECT*,
+CASE
+    WHEN SALARY >40000 THEN 'HIGHSALARY'
+	ELSE 'LOWSALARY'
+END AS SALARY
+FROM EMPLOYEEDEMOGRAPHICS
+JOIN EMPLOYEESALARY
+    ON EMPLOYEEDEMOGRAPHICS.EmployeeID
+	=EMPLOYEESALARY.EmployeeID
+
+
+
+
+
+
